@@ -1,0 +1,27 @@
+<h1><%= @sub.name %></h1>
+
+
+
+
+<ul>
+<% @sub.links.each do |link| %>
+  <li>
+    <%= link_to link.title, link_url(link) %>
+  </li>
+<% end %>
+</ul>
+
+
+
+
+
+<br>
+
+<br>
+
+<br>
+
+<%= link_to "Back to Subs", subs_url, :class => "btn btn-primary" %><br>
+<% if current_user == @sub.moderator %>
+<%= link_to "edit sub", edit_sub_url(@sub) %>
+<% end %>
